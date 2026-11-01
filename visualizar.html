@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizar certificado</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #181818;
+            height: 100vh;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <iframe id="pdfViewer"></iframe>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const arquivo = params.get("arquivo");
+
+        const arquivosPermitidos = [
+            "arquivos/certificados/Programador_de_Sistemas-Certificado_Programador_de_Sistemas.pdf",
+            "arquivos/certificados/CYPRESS_AUTOMATIZANDO_TESTES_E2E.pdf",
+            "arquivos/certificados/Equipes_ágeis_organizando_os_papéis_em_uma_equipe.pdf",
+            "arquivos/certificados/Git_e_GitHub_compartilhando_e_colaborando_em_projetos.pdf",
+            "arquivos/certificados/Hábitos_na_liderança_boas_práticas.pdf",
+            "arquivos/certificados/JavaScript_e_HTML_desenvolva_um_jogo.pdf",
+            "arquivos/certificados/Liderança_ aprendendo_sobre_a_missão_e_propósito_de_liderar_pessoas.pdf",
+            "arquivos/certificados/Liderança_ práticas_de_gestão_e_melhorias.pdf",
+            "arquivos/certificados/Lógica_de_programação_explore_funções_e_listas.pdf",
+            "arquivos/certificados/Lógica_de_programação_mergulhe_em_programação_com_JavaScript.pdf",
+            "arquivos/certificados/Mindset_Digital_técnicas_e_habilidades_para_liderança_remota.pdf",
+            "arquivos/certificados/PHP_ conceitos_lidando_com_dados_loops_e_mais.pdf",
+            "arquivos/certificados/Quality_Assurance_plano_de_testes_e_gestão_de_bugs.pdf",
+            "arquivos/certificados/Robot_Framework_automatizando_testes_no_padrão_BDD.pdf",
+            "arquivos/certificados/SEO_ otimização_de_sites.pdf",
+            "arquivos/certificados/AVANÇANDO_COM_PHP_ARRAYS_STRINGS.pdf",
+            "arquivos/certificados/Carreira_de QA_.pdf",
+            "arquivos/certificados/Certificação_Completa_Alura.pdf",
+            "arquivos/Curriculo_Vinicius_Oliveira.pdf"
+        ];
+
+        if (arquivosPermitidos.includes(arquivo)) {
+            document.getElementById("pdfViewer").src = arquivo;
+        } else {
+            document.body.innerHTML =
+                "<h2 style='color:white;padding:30px'>Certificado não encontrado.</h2>";
+        }
+    </script>
+
+</body>
+</html>
